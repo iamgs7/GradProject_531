@@ -1,20 +1,17 @@
 #logo{
     padding-top: 0.5em;
 }
-.team{
-    border-radius: 100%;
+
+hr{
+    text-align: center;
+    background: #e44c65;
+    content: '';
     display: inline-block;
-    height: 18em;
-    margin-left: 3em;
-    vertical-align: middle;
-    width: 18em;
-    border: 0;
-    position: relative;
-    overflow: hidden;
+    height: 0.2em;
+    max-width: 20em;
+    width: 75%;
 }
 
-.team img{
-    border-radius: 100%;
-    display: block;
-    width: 100%;
+section h3{
+    text-align: left;
 }
