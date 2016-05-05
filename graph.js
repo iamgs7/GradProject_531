@@ -3,6 +3,7 @@ var viz, workbook;
 window.onload= function() {
     daykilled();
     yearkilled();
+    roadWeather();
 };
 
 
@@ -10,6 +11,8 @@ function daykilled(){
     var vizDiv = document.getElementById('viz_dayKilled');
     var vizURL = "https://public.tableau.com/views/AP_DayKilled/Day_Killed?:embed=y&:display_count=yes&:showTabs=y";
     var options = {
+        height: '550px',
+        width: '1200px',
         hideToolbar: true,
         hideTabs: true,
         onFirstInteractive: function () {
@@ -19,7 +22,7 @@ function daykilled(){
     };
     viz = new tableauSoftware.Viz(vizDiv, vizURL, options);
     viz.addEventListener('tabswitch', function(event) {
-        document.getElementById('sheetName').innerHTML = event.getNewSheetName();
+        //document.getElementById('sheetName').innerHTML = event.getNewSheetName();
     });
 }
 
@@ -27,11 +30,32 @@ function yearkilled(){
     var vizDiv = document.getElementById('viz_yearKilled');
     var vizURL = "https://public.tableau.com/views/AP_YearKilled/Year_Killed?:embed=y&:display_count=yes&:showTabs=y";
     var options = {
+        height: '550px',
+        width: '1200px',
         hideToolbar: true,
         hideTabs: true,
         onFirstInteractive: function () {
             workbook = viz.getWorkbook();
-            document.getElementById('sheetName').innerHTML = viz.getWorkbook().getActiveSheet().getName();
+            //document.getElementById('sheetName').innerHTML = viz.getWorkbook().getActiveSheet().getName();
+        }
+    };
+    viz = new tableauSoftware.Viz(vizDiv, vizURL, options);
+    viz.addEventListener('tabswitch', function(event) {
+        document.getElementById('sheetName').innerHTML = event.getNewSheetName();
+    });
+}
+
+function roadWeather(){
+    var vizDiv = document.getElementById('viz_roadWeather');
+    var vizURL = "https://public.tableau.com/views/AP_RoadWeather/Sheet3?:embed=y&:display_count=yes&:showTabs=y";
+    var options = {
+        height: '550px',
+        width: '1200px',
+        hideToolbar: true,
+        hideTabs: true,
+        onFirstInteractive: function () {
+            workbook = viz.getWorkbook();
+            //document.getElementById('sheetName').innerHTML = viz.getWorkbook().getActiveSheet().getName();
         }
     };
     viz = new tableauSoftware.Viz(vizDiv, vizURL, options);
